@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+﻿# TradeNet 2.0 Member UI (Next.js)
 
-## Getting Started
+UI-only project built from the full **Member Registration User Guide** PDF.
 
-First, run the development server:
+## Stack
+
+- Next.js 16 (App Router)
+- TypeScript
+- Tailwind CSS v4
+- Heroicons (`@heroicons/react`)
+- `clsx` for conditional class composition
+
+## Run
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open: `http://localhost:3000`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build Check
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm run build
+```
 
-## Learn More
+## PDF Coverage
 
-To learn more about Next.js, take a look at the following resources:
+This project maps the guide chapters into route-based UI screens:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `/apply-member` (Pages 2-6)
+- `/forgot-password` (Pages 7-10)
+- `/login` (Pages 11-12)
+- `/dashboard` (Pages 12-13)
+- `/search-hs` (Pages 13-14)
+- `/profile` (Pages 14-15)
+- `/member-extension` (Pages 16-17)
+- `/change-password` (Page 17)
+- `/recommendations` (Pages 17-18)
+- `/sub-member/create` (Pages 18-20)
+- `/sub-member/deactivate` (Pages 20-22)
+- `/sub-member/activate` (Pages 22-24)
+- `/payment-history` (dashboard user menu item)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Design Direction
 
-## Deploy on Vercel
+- Uses `index.html` style direction as base:
+  - brand navy palette
+  - rounded cards and panels
+  - compact uppercase labels
+  - data-list/table sections
+- Built as reusable, API-ready UI modules (no backend wiring yet).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `src/app/*` route pages
+- `src/components/site-shell.tsx` shared header/sidebar shell
+- `src/components/guide-ui.tsx` reusable UI blocks (cards, tables, step timeline)
+- `src/lib/guide-data.ts` chapter metadata
+- `src/app/globals.css` design tokens and shared utility classes
+
+## Notes
+
+- This is a frontend-only implementation.
+- Table data and actions are mocked to match guide behavior and layout.
