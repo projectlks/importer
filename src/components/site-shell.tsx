@@ -32,7 +32,12 @@ const accountLinks = [
   { label: "Payment History", href: "/payment-history" },
 ];
 
-export function SiteShell({ title, kicker, description, children }: SiteShellProps) {
+export function SiteShell({
+  title,
+  kicker,
+  description,
+  children,
+}: SiteShellProps) {
   return (
     <div className="min-h-screen bg-page-bg">
       <header className="sticky top-0 z-40 border-b border-brand-100/70 bg-white">
@@ -43,7 +48,7 @@ export function SiteShell({ title, kicker, description, children }: SiteShellPro
             </span>
             <span className="space-y-0.5">
               <span className="block font-heading text-sm font-extrabold uppercase tracking-[0.14em] text-brand-900">
-                TradeNet 2.0
+                Importer
               </span>
               <span className="block text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-500">
                 Member Portal
@@ -56,8 +61,7 @@ export function SiteShell({ title, kicker, description, children }: SiteShellPro
               <Link
                 key={item.label}
                 href={item.href}
-                className="rounded-full border border-transparent px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-600 transition hover:border-brand-200 hover:bg-brand-50 hover:text-brand-900"
-              >
+                className="rounded-full border border-transparent px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-600 transition hover:border-brand-200 hover:bg-brand-50 hover:text-brand-900">
                 {item.label}
               </Link>
             ))}
@@ -67,22 +71,19 @@ export function SiteShell({ title, kicker, description, children }: SiteShellPro
             <Link
               href="/search-hs"
               className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition hover:bg-brand-50 hover:text-brand-900"
-              aria-label="Search HS"
-            >
+              aria-label="Search HS">
               <MagnifyingGlassIcon className="h-4 w-4" />
             </Link>
             <Link
               href="/recommendations"
               className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition hover:bg-brand-50 hover:text-brand-900"
-              aria-label="Notifications"
-            >
+              aria-label="Notifications">
               <BellAlertIcon className="h-4 w-4" />
             </Link>
             <div className="group relative">
               <button
                 type="button"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-semibold text-slate-700"
-              >
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-semibold text-slate-700">
                 <UserCircleIcon className="h-5 w-5 text-brand-800" />
                 TestCC
               </button>
@@ -92,8 +93,7 @@ export function SiteShell({ title, kicker, description, children }: SiteShellPro
                     <Link
                       key={item.label}
                       href={item.href}
-                      className="block rounded-md px-2.5 py-2 text-xs font-medium text-slate-600 transition hover:bg-slate-100"
-                    >
+                      className="block rounded-md px-2.5 py-2 text-xs font-medium text-slate-600 transition hover:bg-slate-100">
                       {item.label}
                     </Link>
                   ))}
@@ -111,19 +111,33 @@ export function SiteShell({ title, kicker, description, children }: SiteShellPro
       <div className="border-b border-brand-200 top-band">
         <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6">
           {kicker ? (
-            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/85">{kicker}</p>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/85">
+              {kicker}
+            </p>
           ) : null}
-          <h1 className="font-heading text-lg font-bold uppercase tracking-[0.12em] text-white sm:text-xl">{title}</h1>
-          {description ? <p className="mt-1 max-w-4xl text-sm text-slate-100">{description}</p> : null}
+          <h1 className="font-heading text-lg font-bold uppercase tracking-[0.12em] text-white sm:text-xl">
+            {title}
+          </h1>
+          {description ? (
+            <p className="mt-1 max-w-4xl text-sm text-slate-100">
+              {description}
+            </p>
+          ) : null}
           <div className="mt-3 flex flex-wrap gap-2">
-            <Link href="/dashboard" className="inline-flex items-center gap-1 rounded border border-white/40 bg-white/15 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-white">
+            <Link
+              href="/dashboard"
+              className="inline-flex items-center gap-1 rounded border border-white/40 bg-white/15 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-white">
               <HomeIcon className="h-3.5 w-3.5" />
               Dashboard
             </Link>
-            <Link href="/sub-member" className="inline-flex items-center gap-1 rounded border border-white/40 bg-white/15 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-white">
+            <Link
+              href="/sub-member"
+              className="inline-flex items-center gap-1 rounded border border-white/40 bg-white/15 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-white">
               Sub-member
             </Link>
-            <Link href="/apply-member" className="inline-flex items-center gap-1 rounded border border-white/40 bg-white/15 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-white">
+            <Link
+              href="/apply-member"
+              className="inline-flex items-center gap-1 rounded border border-white/40 bg-white/15 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-white">
               Apply Member
             </Link>
           </div>

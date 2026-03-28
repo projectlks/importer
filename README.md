@@ -1,4 +1,4 @@
-﻿# TradeNet 2.0 Member UI (Next.js)
+﻿# Importer Member UI (Next.js)
 
 UI-only project built from the full **Member Registration User Guide** PDF.
 

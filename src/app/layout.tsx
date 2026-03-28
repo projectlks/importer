@@ -18,7 +18,7 @@ const notoSansMyanmar = Noto_Sans_Myanmar({
 });
 
 export const metadata: Metadata = {
-  title: "TradeNet 2.0 UI Guide",
+  title: "Importer UI Guide",
   description:
     "Next.js UI project based on Member Registration User Guide PDF with Tailwind CSS and Heroicons.",
 };
@@ -31,8 +31,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${manrope.variable} ${sora.variable} ${notoSansMyanmar.variable} h-full antialiased`}
-    >
+      className={`${manrope.variable} ${sora.variable} ${notoSansMyanmar.variable} h-full antialiased`}>
       <body className="min-h-full">{children}</body>
     </html>
   );
